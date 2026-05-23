@@ -1,0 +1,95 @@
+===============================================================================
+                       PRK LAUNCHER CONFIGURATION GUIDE
+===============================================================================
+This file explains how to manually customize your launcher, add accounts, and
+configure keyboard hotkeys directly using any text editor (like Notepad).
+
+All changes must be made inside the "settings.ini" file.
+
+-------------------------------------------------------------------------------
+1. MANAGING ACCOUNTS & PASSWORDS
+-------------------------------------------------------------------------------
+Each account has its own bracketed section matching the account username. 
+
+To add an account, append its username to the comma-separated "AccountList" key 
+under the [Settings] block. Then, create a matching section for that account.
+
+[Settings]
+AccountList=CharOne,CharTwo,CharThree
+
+[CharOne]
+Pass=MyPlaintextPassword123  ; Hand-typed plain text password
+
+[CharTwo]
+Pass=_ENC_4a2c1f88e3bc90d1   ; Encrypted password (Managed by accounts.exe)
+
+
+-------------------------------------------------------------------------------
+2. CUSTOMIZING THE CORE SETTINGS
+-------------------------------------------------------------------------------
+Under the [Settings] block, you can configure structural game options, layout
+labels, typography styles, and core automation execution delays (in milliseconds).
+
+[Settings]
+GamePath=C:\Games\Anarchy Online\AnarchyOnline.exe
+AoParams=IA 2642997703 IP 7000 UI
+PressEnter=1             ; 1 = This loads the last character used, disable if you
+							want to select another character. It uses the WaitTitle
+							delay. Increase the delay if it doesn't load.
+
+Go1Label=Primary Account ; Changes the text on the "Go 1" button
+Go2Label=Alt Account     ; Changes the text on the "Go 2" button
+BothLabel=Launch Macro   ; Changes the text on the dual-launch button
+
+FontName=Segoe UI        ; Change to any installed system font (e.g. Arial, Tahoma)
+FontSize=18              ; Size of the launcher typography text
+FormColor=0xF0F0F0       ; Hexadecimal Background Color code
+BtnColor=0xE1E1E1        ; Hexadecimal Button Canvas Color code
+TxtColor=0x000000        ; Hexadecimal Font Typography Color code
+BgImage=                 ; Optional full path to a custom background image (.png/.jpg)
+
+WaitTitle=5000           ; Delay (ms) to wait for the game window to open/load the
+							last used character.
+WaitTab=300              ; Delay (ms) between automated Tab keypress sequences
+TypeDelay=40             ; Delay (ms) between each individual letter typed
+
+-------------------------------------------------------------------------------
+3. ASSIGNING KEYBOARD HOTKEYS
+-------------------------------------------------------------------------------
+You can map specific keyboard buttons to fire your utilities instantly.
+By default, these values match standard number and character mappings:
+
+[Settings]
+KeyGo1=1                 ; Press '1' to fire the primary account launcher
+KeyGo2=2                 ; Press '2' to fire the alt account launcher
+KeyBoth=0                ; Press '0' to trigger the back-to-back macro sequence
+
+KeyTool0=a               ; Press lowercase 'a' to run Tool Slot 0
+KeyTool1=s               ; Press lowercase 's' to run Tool Slot 1
+KeyTool2=3               ; Press '3' to run Tool Slot 2
+KeyTool3=4               ; Press '4' to run Tool Slot 3
+...                      ; Maps sequentially up to KeyTool7=8
+
+* NOTE: Shortcuts are fully case-sensitive. If you write 'S', typing a lowercase
+  's' will not trigger the utility tool.
+
+-------------------------------------------------------------------------------
+4. CONFIGURING EXTERNAL UTILITY TOOLS
+-------------------------------------------------------------------------------
+The launcher supports mapping up to 8 custom external programs (Slots 0 to 7) 
+under the [Tools] section block. Each slot requires a Name and a Cmd path:
+
+[Tools]
+T0_Name=Accounts Manager  ; Text displayed on the button label
+T0_Cmd=accounts.exe       ; Filename or absolute path to run on click
+
+T1_Name=Settings Manager
+T1_Cmd=settings.exe
+
+T2_Name=AOMap             ; Custom user utility tool example
+T2_Cmd=C:\AO_Tools\AOMap.exe
+
+* NOTE: If you clear the fields completely, Slot 0 and Slot 1 will automatically 
+  re-bind to accounts.exe and settings.exe respectively on the next application 
+  startup sequence.
+===============================================================================

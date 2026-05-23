@@ -1,0 +1,36 @@
+#include <windows.h>
+
+// 1. Application Icon Definition
+// Maps ID 1 (standard for main executable icons) to app.ico
+1 ICON "app.ico"
+
+// 2. Executable Version & Metadata Details Block
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION    1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
+FILEFLAGS      0x0L
+FILEOS         VOS_NT_WINDOWS32
+FILETYPE       VFT_APP
+FILESUBTYPE    0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        // 040904B0 specifies US English, Unicode character set
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName",      "PRK Tools\0"
+            VALUE "FileDescription",  "Launcher for Project RK\0"
+            VALUE "FileVersion",      "1.0.0.0\0"
+            VALUE "InternalName",     "PRKLauncher\0"
+            VALUE "LegalCopyright",   "Copyright (C) 2026 Ar1z\0"
+            VALUE "OriginalFilename", "PRKLauncher.exe\0"
+            VALUE "ProductName",      "PRK Launcher by Ar1z\0"
+            VALUE "ProductVersion",   "1.0.0.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

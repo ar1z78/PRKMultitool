@@ -1,0 +1,8 @@
+# Ignore compiled executables
+*.exe
+
+# Ignore object files
+*.o
+
+# Ignore configuration files
+*.ini
