@@ -146,7 +146,7 @@ int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lp, int nS) {
     LoadAllSettings();
 
     //Setup Paths and Background
-    GetPrivateProfileStringA("Settings", "BgImage", "", BG_PATH, MAX_PATH, INI);
+    GetPrivateProfileStringA("Settings", "BgImage", "bg.jpg", BG_PATH, MAX_PATH, INI);
     if (strlen(BG_PATH) > 0) LoadBackgroundImage(BG_PATH);
 
     GetPrivateProfileStringA("Settings", "GamePath", "", GAME_EXE, MAX_PATH, INI);

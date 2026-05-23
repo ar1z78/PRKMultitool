@@ -22,6 +22,7 @@ void InitDefaults() {
     DEF_SET("WaitTitle", "5000");
     DEF_SET("WaitTab", "300");
     DEF_SET("TypeDelay", "40");
+	DEF_SET("BgImage", "bg.jpg");
     DEF_SET("FontSize", "18");
     DEF_SET("FontName", "Segoe UI");
     DEF_SET("FormColor", "0xF0F0F0");
